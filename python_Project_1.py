@@ -30,3 +30,67 @@ other freshwater genera and herring similar to those
 in modern oceans. Other fish such as paddlefish, 
 garpike and stingray are also present.'''
 ]
+
+delimiter = '-'*40
+print(delimiter)
+print('Welcome to the app. Please log in: ')
+
+logins = {'bob': '123', 'ann': 'pass123', 'mike': 'password123', 'liz': 'pass123'}
+username = input('USERNAME: ')
+password = input('PASSWORD: ')
+
+while (username not in logins.keys()) or (logins.get(username,'') != password):
+    print('Incorrect username or password, please try again: ')
+    username = input('USERNAME: ')
+    password = input('PASSWORD: ')
+print('Login successful!')
+print(delimiter)
+
+text_num = 0
+while text_num < 1 or text_num > 3:
+    text_num = int(input('Enter a number btw. 1 and 3 to select: '))
+print(delimiter)
+
+text = TEXTS[text_num - 1].lstrip('\n').rstrip(' ')
+words = text.replace(',', '').replace('.', '').replace('\n', '').split(' ')
+
+num_of_words = 0
+title_words = 0
+upper_words = 0
+lower_words = 0
+numeric_words = 0
+sum_of_num_words = 0
+bar_chart = dict()
+
+while words:
+    word = words.pop()
+    num_of_words += 1
+    if word.istitle():
+        title_words += 1
+    if word.isupper():
+        upper_words += 1
+    if word.islower():
+        lower_words += 1
+    if word.isdigit():
+        numeric_words += 1
+        sum_of_num_words += int(word)
+    word_len = len(word)
+    if word_len in bar_chart.keys():
+        bar_chart[word_len] += 1
+    else:
+        bar_chart[word_len] = 1
+
+print(f'There are {num_of_words} words in the selected text.')
+print(f'There are {title_words} titlecase words')
+print(f'There are {upper_words} uppercase words')
+print(f'There are {lower_words} lowercase words')
+print(f'There are {numeric_words} numeric strings')
+print(delimiter)
+
+bar_items = sorted(bar_chart.items())
+for item in bar_items:
+    print(str(item[0]) + ' ' + '*'*item[1] + ' ' + str(item[1]))
+
+print(delimiter)
+print(f'If we summed all the numbers in this text we would get: {sum_of_num_words}')
+print(delimiter)
