@@ -40,7 +40,7 @@ username = input('USERNAME: ')
 password = input('PASSWORD: ')
 
 while (username not in logins.keys()) or (logins.get(username,'') != password):
-    print('Incorrect username or password, please try again: ')
+    print('Mas spatnou pamet, zkus to znova!')
     username = input('USERNAME: ')
     password = input('PASSWORD: ')
 print('Login successful!')
