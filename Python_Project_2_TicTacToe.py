@@ -73,7 +73,7 @@ Let's start the game
                 print_board(board)
                 if win(board, turn):
                     win_flag = True
-                    print('CONGRATS, YOU WIN!!!!\n')
+                    print(f'CONGRATS, PLAYER {turn} WINS!!!!\n')
                     break
                 elif is_board_full(board):
                     break
@@ -86,7 +86,7 @@ Let's start the game
                 print_board(board)
                 if win(board, turn):
                     win_flag = True
-                    print('CONGRATS, YOU WIN!!!!\n')
+                    print(f'CONGRATS, PLAYER {turn} WINS!!!!\n')
                     break
                 elif is_board_full(board):
                     break
