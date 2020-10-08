@@ -1,5 +1,6 @@
 delimiter = '=' * 52
 
+
 def print_board(board):  # this just prints the current board
     board_template = '''
 -------------
@@ -17,16 +18,15 @@ def users_choice(board, turn):  # get input from user - select a position
     print(delimiter)
     choice = input(f'Player {turn} | Please enter your move number (1 - 9): ')
     while True:
-        if not choice or len(choice) > 1:
+        if not choice.isdigit():
             choice = input('Please select a value between 1 and 9: ')
-        elif not choice.isdigit():
+        elif int(choice) not in range(1, 10):
             choice = input('Please select a value between 1 and 9: ')
         elif board[int(choice) - 1] != ' ':
             choice = input('Already taken, please select another one: ')
         else:
             print(delimiter)
             return int(choice) - 1
-            break
 
 
 def update_board(board, turn, choice):
