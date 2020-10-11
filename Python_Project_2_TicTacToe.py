@@ -6,18 +6,15 @@ delimiter = '=' * 80
 def game_params():  # get game parameters from user, field size and difficulty
     # print(delimiter)
     size = input('Select the size of the field (3 - 9): ')
-    while True:
-        if not size.isdigit():
-            size = input('Try again please: ')
-        elif int(size) not in range(3, 10):
-            size = input('Try again please: ')
-        else:
-            break
+    while not(size.isdigit() and int(size) in range(3, 10)):
+        size = input('Try again please: ')
+
     if int(size) > 3:
         difficulty = input(f'Select difficulty level (3 - {size}): ')
     else:
         print('Difficulty set to a default value 3.')
         return int(size), 3
+
     # difficulty corresponds with the number of consecutive marks
     # needed for victory
     while True:
