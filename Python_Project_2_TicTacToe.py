@@ -1,4 +1,5 @@
 import numpy as np  # to be able to work with diagonals easily
+import random
 
 delimiter = '=' * 80
 
@@ -105,7 +106,7 @@ the second second digit corresponds with the column number.
     print(delimiter)
     print(intro)
     print(delimiter)
-    turn = 'O'  # whos turn it is to play, player 1 = 'O', player 2 = 'X'
+    turn = random.choice(['O', 'X'])  # whos turn it is to play, player 1 = 'O', player 2 = 'X'
     repeat = ''
     size, difficulty = game_params()
 
